@@ -1,12 +1,12 @@
 :- module('operations', [
-  get_operations/2
+  extract_operations/2
 ]).
 
-get_operations([Command|OtherCommands], Ordered) :-
-  get_operations(OtherCommands, PartiallyOrdered),
+extract_operations([Command|OtherCommands], Operations) :-
+  extract_operations(OtherCommands, PartialOperations),
   list_operations(Command, List),
-  append(List, PartiallyOrdered, Ordered).
-get_operations([], []).
+  append(List, PartialOperations, Operations).
+extract_operations([], []).
 
 list_operations(operation(Direction, Value), [operation(Direction, Value)]).
 list_operations(command(none, Command, none), List) :-
