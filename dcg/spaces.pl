@@ -5,19 +5,18 @@
   new_lines//0
 ]).
 
-spaces --> [].
 spaces --> space, spaces.
+spaces --> [].
 
 required_spaces --> space, spaces.
 
 space --> " ".
-space --> "\s".
 space --> "\t".
+space --> "\v".
 
-new_line --> "\n\r".
 new_line --> "\r\n".
 new_line --> "\n".
 new_line --> "\r".
 
-new_lines --> new_line.
 new_lines --> new_line, new_lines.
+new_lines --> new_line.

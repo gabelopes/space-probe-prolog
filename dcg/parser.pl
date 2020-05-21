@@ -6,20 +6,20 @@
 :- use_module('spaces').
 :- use_module('numbers').
 
-commands([]) --> [].
 commands(Commands) -->
   spaces,
   rows(Commands),
   spaces.
+commands([]) --> [].
 
-rows([]) --> [].
-rows([Command]) --> command(Command).
-rows([Command|Rest]) -->
+rows([Command|OtherCommands]) -->
   command(Command),
   spaces,
   new_lines,
   spaces,
-  rows(Rest).
+  rows(OtherCommands).
+rows([Command]) --> command(Command).
+rows([]) --> [].
 
 command(command(none, Operation, none)) --> operation(Operation).
 command(command(none, Operation, Then)) -->

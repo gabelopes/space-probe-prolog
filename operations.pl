@@ -2,11 +2,11 @@
   get_operations/2
 ]).
 
-get_operations([], []).
-get_operations([Command|Rest], Ordered) :-
-  get_operations(Rest, PartiallyOrdered),
+get_operations([Command|OtherCommands], Ordered) :-
+  get_operations(OtherCommands, PartiallyOrdered),
   list_operations(Command, List),
   append(List, PartiallyOrdered, Ordered).
+get_operations([], []).
 
 list_operations(command(none, none, none), []).
 list_operations(operation(Direction, Value), [operation(Direction, Value)]).
