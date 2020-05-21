@@ -1,9 +1,9 @@
 :- module(tokens, [
-  left_parenthesis/2,
-  right_parenthesis/2,
-  direction/3,
-  then/2,
-  after/2
+  left_parenthesis//0,
+  right_parenthesis//0,
+  direction//1,
+  then//0,
+  after//0
 ]).
 
 left_parenthesis --> "(".

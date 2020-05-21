@@ -1,5 +1,5 @@
 :- module(numbers, [
-  number/3
+  number//1
 ]).
 
 % Integers

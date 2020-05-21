@@ -1,8 +1,8 @@
 :- module(spaces, [
-  spaces/2,
-  required_spaces/2,
-  new_line/2,
-  new_lines/2
+  spaces//0,
+  required_spaces//0,
+  new_line//0,
+  new_lines//0
 ]).
 
 spaces --> [].
