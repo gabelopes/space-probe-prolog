@@ -2,16 +2,20 @@
   number//1
 ]).
 
-% Integers
 number(Number) -->
   { var(Number) },
-  digits(Digits),
-  { number_chars(Number, Digits) }.
+  integer(Characters),
+  { number_chars(Number, Characters) }.
 number(Number) -->
   {
     nonvar(Number),
-    number_chars(Number, Digits)
+    number_chars(Number, Characters)
   },
+  integer(Characters).
+
+% Integers
+integer([Sign|Digits]) -->
+  sign(Sign),
   digits(Digits).
 
 digits([Digit]) --> digit(Digit).
@@ -29,3 +33,7 @@ digit('6') --> "6".
 digit('7') --> "7".
 digit('8') --> "8".
 digit('9') --> "9".
+
+sign('-') --> "-".
+sign('+') --> "+".
+sign('+') --> "".
