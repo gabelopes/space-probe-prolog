@@ -35,6 +35,32 @@ command(command(After, Operation, none)) -->
   command(After).
 command(command(none, Operation, none)) -->
   operation(Operation).
+command(command(none, Command, Then)) -->
+  left_parenthesis,
+  spaces,
+  command(Command),
+  spaces,
+  right_parenthesis,
+  spaces,
+  then,
+  spaces,
+  command(Then).
+command(command(After, Command, none)) -->
+  left_parenthesis,
+  spaces,
+  command(Command),
+  spaces,
+  right_parenthesis,
+  spaces,
+  after,
+  spaces,
+  command(After).
+command(command(none, Command, none)) -->
+  left_parenthesis,
+  spaces,
+  command(Command),
+  spaces,
+  right_parenthesis.
 
 operation(operation(Direction, Value)) -->
   direction(Direction),
