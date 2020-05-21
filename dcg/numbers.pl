@@ -1,4 +1,4 @@
-:- module(numbers, [
+:- module('numbers', [
   number//1
 ]).
 

@@ -1,4 +1,4 @@
-:- module(space_probe, [
+:- module('space_probe', [
   move/2,
   move/3,
   directed_move/2,
@@ -25,7 +25,7 @@ calculate_position(point(X, Y), operation(left, Value), point(MovedX, Y)) :-
 % For example: if the space probe is moving forward, and then wants to take a left, the
 % new position will be left. Now if it wants to take a left again, then it will be moving
 % backwards. Once again left, then it will be moving right, etc.
-% 
+%
 % The reasoning behind the algorithm used lies in identifying a group that is isomorph
 % to the following operation table: (the found isomorph group is on the right)
 %                +---+---+---+---+---+          +----+----+----+----+----+
@@ -42,7 +42,7 @@ calculate_position(point(X, Y), operation(left, Value), point(MovedX, Y)) :-
 % Since the isomorph group has a Complex subset and the operation is multiplication, we use
 % a bijective mapping `direction_scalar` (to act as the isomorphism) and `multiply_complex`,
 % which will do the operation part.
-% 
+%
 % Once we determine the direction using the isomorphism, the rest of the algorithm is calculated
 % exactly as the simple `move`, using `calculate_position`.
 directed_move(Operations, Result) :-

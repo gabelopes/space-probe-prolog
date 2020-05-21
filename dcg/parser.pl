@@ -1,10 +1,10 @@
-:- module(parser, [
+:- module('parser', [
   parse_commands/2
 ]).
 
-:- use_module(tokens).
-:- use_module(spaces).
-:- use_module(numbers).
+:- use_module('tokens').
+:- use_module('spaces').
+:- use_module('numbers').
 
 commands([]) --> [].
 commands(Commands) -->

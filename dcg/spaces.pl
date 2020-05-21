@@ -1,4 +1,4 @@
-:- module(spaces, [
+:- module('spaces', [
   spaces//0,
   required_spaces//0,
   new_line//0,

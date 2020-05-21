@@ -1,4 +1,4 @@
-:- module(operations, [
+:- module('operations', [
   get_operations/2
 ]).
 
