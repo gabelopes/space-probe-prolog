@@ -21,19 +21,20 @@ rows([Command|OtherCommands]) -->
 rows([Command]) --> command(Command).
 rows([]) --> [].
 
-command(command(none, Operation, none)) --> operation(Operation).
 command(command(none, Operation, Then)) -->
   operation(Operation),
   spaces,
   then,
   spaces,
   command(Then).
-command(command(command(ChildAfter, ChildOperation, Then), Operation, Then)) -->
+command(command(After, Operation, none)) -->
   operation(Operation),
   spaces,
   after,
   spaces,
-  command(command(ChildAfter, ChildOperation, Then)).
+  command(After).
+command(command(none, Operation, none)) -->
+  operation(Operation).
 
 operation(operation(Direction, Value)) -->
   direction(Direction),
